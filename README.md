@@ -1,6 +1,9 @@
-# danmaku-chating #
-Chating with danmaku!
+# danmaku-chatting #
+Chatting with danmaku!
+
 Danmaku will show on screen.
+
+(chatting is not chating)
 
 # Server #
 Server use LeanCloud, the keys is public.
