@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
 
-namespace Danmaku {
+namespace libDanmaku {
     /// <summary>
     /// DanmakuWindow.xaml 的交互逻辑
     /// </summary>

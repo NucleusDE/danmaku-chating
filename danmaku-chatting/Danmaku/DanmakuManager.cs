@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Shapes;
 using System.Windows;
 using System.Windows.Media;
-using Danmaku.Danmakus;
+using libDanmaku.Danmakus;
 
-namespace Danmaku {
+namespace libDanmaku {
     public class DanmakuManager {
         private readonly int SCREEN_LEVEL_COUNT;
         public readonly int SCREEN_HEIGHT;
@@ -20,6 +20,8 @@ namespace Danmaku {
         bool[] move_LevelAvaliable;
         int top_NextLevel;
         bool[] top_LevelAvaliable;
+        int bottom_NextLevel;
+        bool[] bottom_LevelAvaliable;
 
         public DanmakuManager() {
             Rect r = SystemParameters.WorkArea;
@@ -29,11 +31,14 @@ namespace Danmaku {
             danmakuArr = new List<DanmakuWindow>();
             move_NextLevel = 1;
             top_NextLevel = 1;
+            bottom_NextLevel = 1;
             move_LevelAvaliable = new bool[SCREEN_LEVEL_COUNT];
             top_LevelAvaliable = new bool[SCREEN_LEVEL_COUNT];
+            bottom_LevelAvaliable = new bool[SCREEN_LEVEL_COUNT];
             for (int i = 0; i < SCREEN_LEVEL_COUNT; i++) {
                 move_LevelAvaliable[i] = true;
                 top_LevelAvaliable[i] = true;
+                bottom_LevelAvaliable[i] = true;
             }
         }
 
@@ -99,6 +104,38 @@ namespace Danmaku {
             top_LevelAvaliable[level] = true;
             if (level < top_NextLevel) {
                 top_NextLevel = level;
+            }
+        }
+        #endregion
+        #region BottomDanmaku
+        public void AddBottomDanmaku(string str, string sender, Color color) {
+            bottom_LevelAvaliable[bottom_NextLevel] = false;
+            int danmakuTop = (SCREEN_LEVEL_COUNT - (bottom_NextLevel - 1)) * DANMAKU_HEIGHT;
+            var danmaku = new BottomDanmaku(str, sender, danmakuTop, this, bottom_NextLevel++, color);
+            danmakuArr.Add(danmaku);
+            danmaku.Closed += DanmakuClose;
+            danmaku.Show();
+            if (bottom_NextLevel >= SCREEN_LEVEL_COUNT) {
+                bottom_NextLevel++;
+                bottom_NextLevel -= SCREEN_LEVEL_COUNT;
+            }
+            if (GetBottomLevelAvaliable(bottom_NextLevel)) {
+                bottom_NextLevel = FindBottomNextLevel(bottom_NextLevel);
+            }
+        }
+        private bool GetBottomLevelAvaliable(int index) {
+            return bottom_LevelAvaliable[index];
+        }
+        private int FindBottomNextLevel(int index) {
+            for (int i = index; i < SCREEN_LEVEL_COUNT; i++) {
+                if (bottom_LevelAvaliable[i]) return i;
+            }
+            return 1;
+        }
+        internal void SetBottomLevelAvaliable(int level) {
+            bottom_LevelAvaliable[level] = true;
+            if (level < bottom_NextLevel) {
+                bottom_NextLevel = level;
             }
         }
         #endregion

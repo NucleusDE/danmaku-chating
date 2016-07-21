@@ -7,7 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows;
 
-namespace Danmaku.Danmakus {
+namespace libDanmaku.Danmakus {
     public class MoveDanmaku : DanmakuWindow {
         private readonly int DANMAKU_TOP;
         private readonly int DANMAKU_TIME = 10;

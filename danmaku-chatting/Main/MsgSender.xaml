@@ -1,0 +1,27 @@
+﻿<Window x:Class="Main.MsgSender"
+        AllowsTransparency="True"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Main"
+        mc:Ignorable="d"
+        Title="MsgSender" Height="40" Width="400" ResizeMode="NoResize" WindowStyle="None"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}" Background="{x:Null}" Loaded="Window_Loaded" Closing="Window_Closing" MouseEnter="MouseEnter_" Topmost="True" LostFocus="LostFocus_">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="bg.png"/>
+        </Grid.Background>
+        <Button Style="{StaticResource MaterialDesignRaisedButton}" Margin="310,7,22,7" Background="White" BorderBrush="White" Height="Auto" Click="Button_Click">
+            <TextBlock Text="Send" Foreground="#DD000000"/>
+        </Button>
+        <TextBox x:Name="msgInput" Height="20" Margin="29,10,95,0" TextWrapping="NoWrap" VerticalAlignment="Top" Background="White" FontSize="13"/>
+        <materialDesign:PackIcon Kind="Settings" Margin="288,12,0,0" Foreground="Gray" MouseUp="PackIcon_MouseUp"></materialDesign:PackIcon>
+    </Grid>
+</Window>

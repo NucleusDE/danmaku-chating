@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace Danmaku.Danmakus {
+namespace libDanmaku.Danmakus {
     class TopDanmaku : DanmakuWindow
     {
         private readonly int DANMAKU_TOP;

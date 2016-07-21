@@ -39,10 +39,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Invokers\CreateRoom.cs" />
+    <Compile Include="Invokers\ExitRoom.cs" />
+    <Compile Include="Invokers\JoinRoom.cs" />
+    <Compile Include="Invokers\SendMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Invokers\" />
+    <ProjectReference Include="..\libData\libData.csproj">
+      <Project>{6795595c-af10-4748-9592-779baec3a106}</Project>
+      <Name>libData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libMemoryData\libMemoryData.csproj">
+      <Project>{cdfeca44-82d3-4e2d-96d4-27e7de4efab4}</Project>
+      <Name>libMemoryData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libNetwork\libNetwork.csproj">
+      <Project>{2fdab6bd-5eaf-4628-b08a-91a7683d58ba}</Project>
+      <Name>libNetwork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{e8f6954b-7ffb-463d-98d1-9a5cbb54c500}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

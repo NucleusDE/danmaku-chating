@@ -1,12 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{14BD06EA-4062-4078-8A23-D67443F0B6AF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libDanmaku", "Demo\libDanmaku.csproj", "{DE1027FA-472B-4DA4-9C81-A67122B32105}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BgSupport", "BgSupport", "{0AA4561E-A1BE-40D1-98E2-0C0A962FB276}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{E8F6954B-7FFB-463D-98D1-9A5CBB54C500}"
@@ -19,20 +15,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libMemoryData", "libMemoryD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libData", "libData\libData.csproj", "{6795595C-AF10-4748-9592-779BAEC3A106}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{D1C3C189-EC27-4489-8A41-0AAFDC681AA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerThreatment", "ServerTheatment\ServerThreatment.csproj", "{333D0EEA-F778-4B6B-872E-DA75B1E8A3D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libDanmaku", "Danmaku\libDanmaku.csproj", "{13C10E6A-F10D-4F7F-A6D6-7752857D1923}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{14BD06EA-4062-4078-8A23-D67443F0B6AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14BD06EA-4062-4078-8A23-D67443F0B6AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14BD06EA-4062-4078-8A23-D67443F0B6AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14BD06EA-4062-4078-8A23-D67443F0B6AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE1027FA-472B-4DA4-9C81-A67122B32105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE1027FA-472B-4DA4-9C81-A67122B32105}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE1027FA-472B-4DA4-9C81-A67122B32105}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE1027FA-472B-4DA4-9C81-A67122B32105}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E8F6954B-7FFB-463D-98D1-9A5CBB54C500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E8F6954B-7FFB-463D-98D1-9A5CBB54C500}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8F6954B-7FFB-463D-98D1-9A5CBB54C500}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,6 +47,18 @@ Global
 		{6795595C-AF10-4748-9592-779BAEC3A106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6795595C-AF10-4748-9592-779BAEC3A106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6795595C-AF10-4748-9592-779BAEC3A106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1C3C189-EC27-4489-8A41-0AAFDC681AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1C3C189-EC27-4489-8A41-0AAFDC681AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1C3C189-EC27-4489-8A41-0AAFDC681AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1C3C189-EC27-4489-8A41-0AAFDC681AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{333D0EEA-F778-4B6B-872E-DA75B1E8A3D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{333D0EEA-F778-4B6B-872E-DA75B1E8A3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{333D0EEA-F778-4B6B-872E-DA75B1E8A3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{333D0EEA-F778-4B6B-872E-DA75B1E8A3D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13C10E6A-F10D-4F7F-A6D6-7752857D1923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C10E6A-F10D-4F7F-A6D6-7752857D1923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C10E6A-F10D-4F7F-A6D6-7752857D1923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C10E6A-F10D-4F7F-A6D6-7752857D1923}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +69,7 @@ Global
 		{2FDAB6BD-5EAF-4628-B08A-91A7683D58BA} = {0AA4561E-A1BE-40D1-98E2-0C0A962FB276}
 		{CDFECA44-82D3-4E2D-96D4-27E7DE4EFAB4} = {0AA4561E-A1BE-40D1-98E2-0C0A962FB276}
 		{6795595C-AF10-4748-9592-779BAEC3A106} = {0AA4561E-A1BE-40D1-98E2-0C0A962FB276}
+		{333D0EEA-F778-4B6B-872E-DA75B1E8A3D3} = {0AA4561E-A1BE-40D1-98E2-0C0A962FB276}
+		{13C10E6A-F10D-4F7F-A6D6-7752857D1923} = {0AA4561E-A1BE-40D1-98E2-0C0A962FB276}
 	EndGlobalSection
 EndGlobal
