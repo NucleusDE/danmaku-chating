@@ -19,6 +19,7 @@ using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 using System.Windows.Navigation;
 using System.Windows.Media.Animation;
+using libNetwork.Sockets;
 
 namespace Main {
     /// <summary>
@@ -37,6 +38,7 @@ namespace Main {
 
         public Login() {
             InitializeComponent();
+            ConnectToServer.Connect();
         }
         
         private void icons_MouseEnter(object sender, MouseEventArgs e) {
@@ -142,6 +144,9 @@ namespace Main {
             join.BeginAnimation(OpacityProperty, dAnimation);
             createIcon.BeginAnimation(OpacityProperty, dAnimation);
             joinIcon.BeginAnimation(OpacityProperty, dAnimation);
+
+            createIcon.IsEnabled = false;
+            joinIcon.IsEnabled = false;
         }
 
         private void DoJoinAnimations() {
@@ -167,6 +172,8 @@ namespace Main {
             createIcon.BeginAnimation(OpacityProperty, dAnimation);
             joinIcon.BeginAnimation(OpacityProperty, dAnimation);
 
+            createIcon.IsEnabled = false;
+            joinIcon.IsEnabled = false;
         }
 
         private void usernameInput_KeyUp(object sender, KeyEventArgs e) {
