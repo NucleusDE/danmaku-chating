@@ -30,8 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,10 +44,12 @@
   <ItemGroup>
     <Compile Include="Actions\DCJoin.cs" />
     <Compile Include="Actions\DCLogin.cs" />
+    <Compile Include="Actions\DCMsgReceiveManager.cs" />
     <Compile Include="Actions\DCSendMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\DCJoinResult.cs" />
     <Compile Include="Results\DCLoginResult.cs" />
+    <Compile Include="Results\MsgReceiveArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Invoker\Invoker.csproj">

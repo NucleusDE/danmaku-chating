@@ -16,7 +16,6 @@ namespace ServerThreatment.Actions {
             } else if (roomKey == "") {
                 throw new Exception("EmptyRoomKey");
             }
-            SockReceiver receiver = new SockReceiver();
             bool s = true;
             Room_mod mod = new Room_mod() {
                 User_id = userName,
@@ -26,7 +25,7 @@ namespace ServerThreatment.Actions {
 
             JoinRoom.Join(mod, 1);
             try {
-                mod.FromBytes(receiver.ReceiveData());
+                mod.FromBytes(SockReceiver.ReceiveData());
             } catch {
                 s = false;
             }

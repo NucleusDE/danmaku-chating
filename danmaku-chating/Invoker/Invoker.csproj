@@ -43,6 +43,8 @@
     <Compile Include="Invokers\ExitRoom.cs" />
     <Compile Include="Invokers\JoinRoom.cs" />
     <Compile Include="Invokers\SendMessage.cs" />
+    <Compile Include="Invokers_Rece\AnalysisStack.cs" />
+    <Compile Include="Invokers_Rece\StartListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

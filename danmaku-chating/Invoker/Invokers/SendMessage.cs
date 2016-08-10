@@ -8,12 +8,11 @@ using libNetwork.Sockets;
 
 namespace Invoker.Invokers
 {
-    static public class CreateRoom
+    static public class SendMessage
     {
-        static public void Create(Room_mod data, int uid)
+        static public void Send(Message_mod data)
         {
-            SockSender sender = new SockSender();
-            sender.SendMessage(data.ToBytes(uid, 2));
+            SockSender.SendMessage(data.ToBytes());
         }
     }
 }

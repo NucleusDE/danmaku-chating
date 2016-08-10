@@ -22,7 +22,7 @@ namespace libData
         public const short OP_code_ExitRoom_Succeed = 0;
         public const short OP_code_ExitRoom_Failed = 1;
 
-        public static System.Net.IPAddress ServerIP = System.Net.IPAddress.Parse("120.55.69.73");
+        public static System.Net.IPAddress ServerIP = System.Net.IPAddress.Parse("127.0.0.1");
         public const int ServerPort = 2001;
     }
 }

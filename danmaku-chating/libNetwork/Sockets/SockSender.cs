@@ -9,12 +9,14 @@ using libMemoryData;
 
 namespace libNetwork.Sockets
 {
-    public class SockSender
+    static public class SockSender
     {
-        public bool SendMessage(byte[] data)
+        static public bool SendMessage(byte[] data)
         {
             try
             {
+                if (ServerProperty.RemoteServer == null)
+                    return false;
                 NetworkStream streamToServer = ServerProperty.RemoteServer.GetStream();
                 streamToServer.Write(data, 0, data.Length);
                 return true;

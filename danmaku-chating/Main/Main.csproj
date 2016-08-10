@@ -128,6 +128,10 @@
       <Project>{13c10e6a-f10d-4f7f-a6d6-7752857d1923}</Project>
       <Name>libDanmaku</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Invoker\Invoker.csproj">
+      <Project>{ab7f056b-ce98-4d02-8894-7455f1cc12d7}</Project>
+      <Name>Invoker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\libNetwork\libNetwork.csproj">
       <Project>{2fdab6bd-5eaf-4628-b08a-91a7683d58ba}</Project>
       <Name>libNetwork</Name>

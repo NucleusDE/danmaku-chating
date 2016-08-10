@@ -18,13 +18,14 @@ using ServerThreatment.Actions;
 using Model.Structs;
 using libDanmaku;
 using libNetwork.Sockets;
+using ServerThreatment.Results;
+using Invoker.Invokers_Rece;
 
 namespace Main {
     /// <summary>
     /// MsgSender.xaml 的交互逻辑
     /// </summary>
     public partial class MsgSender : Window {
-        const int HOTKEY_ID = 23333333;
         const float SCREEN_HEIGHT_PROPORTION = 0.8f;
         const float WINDOW_WIDTH_PROPORTION = 0.1f;
         readonly string UserName;
@@ -38,42 +39,38 @@ namespace Main {
             this.Left = SystemParameters.WorkArea.Width - this.Width * WINDOW_WIDTH_PROPORTION;
             UserName = username;
 
-            Thread t = new Thread(ReceiveDanmaku);
-            t.Start();
+            DCMsgReceiveManager.Initialize();
+            DCMsgReceiveManager.OnMsgReceived += ReceiveDanmaku;
         }
 
-        private void ReceiveDanmaku() {
-            mDanmakuManager = new DanmakuManager();
-            SockReceiver sr = new SockReceiver();
-            var b = sr.ReceiveData();
-            Message_mod mod = new Message_mod();
-            mod.FromBytes(b);
-
-            switch (mod.Position) {
+        private void ReceiveDanmaku(MsgReceiveArgs args) {
+            switch (args.Position) {
                 case Positions.Top:
-                    mDanmakuManager.AddTopDanmaku(mod.StrMessage, mod.Sender, ConvertIntToColor(mod.Color));
+                    mDanmakuManager.AddTopDanmaku(args.Message, args.Sender, args.Color);
                     break;
                 case Positions.Move:
-                    mDanmakuManager.AddMoveDanmaku(mod.StrMessage, mod.Sender, ConvertIntToColor(mod.Color));
+                    mDanmakuManager.AddMoveDanmaku(args.Message, args.Sender, args.Color);
                     break;
                 case Positions.Bottom:
-                    mDanmakuManager.AddBottomDanmaku(mod.StrMessage, mod.Sender, ConvertIntToColor(mod.Color));
+                    mDanmakuManager.AddBottomDanmaku(args.Message, args.Sender, args.Color);
                     break;
             }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             IntPtr hWnd = new WindowInteropHelper(this).Handle;
-            int fsKey = (int)HotKey.KeyModifiers.Ctrl | (int)HotKey.KeyModifiers.Alt;
-            bool r = HotKey.RegisterHotKey(hWnd, HOTKEY_ID, fsKey, Key.Q);
-            if (!r) {
+            var fsKey = (int)HotKey.KeyFlags.MOD_CONTROL | (int)HotKey.KeyFlags.MOD_ALT;
+            try {
+                var hotkey = new HotKey(this, (HotKey.KeyFlags)fsKey, Key.Q);
+                hotkey.OnHotKey += Hotkey_OnHotKey;
+            } catch {
                 MessageBox.Show("热键注册失败惹~");
             }
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            IntPtr hWnd = new WindowInteropHelper(this).Handle;
-            HotKey.UnRegHotKey(hWnd, HOTKEY_ID);
+        private void Hotkey_OnHotKey()
+        {
+            MouseEnter_(null, null);
         }
 
         private void MouseEnter_(object sender, MouseEventArgs e) {
@@ -107,7 +104,8 @@ namespace Main {
             b[3] = c.B;
             return BitConverter.ToInt32(b, 0);
         }
-        private Color ConvertIntToColor(int value) {
+        private Color ConvertIntToColor(int value)
+        {
             byte[] bytes = BitConverter.GetBytes(value);
             return Color.FromArgb(bytes[0], bytes[1], bytes[2], bytes[3]);
         }

@@ -7,14 +7,16 @@ using libMemoryData;
 
 namespace libNetwork.Sockets
 {
-    public class SockReceiver
+    static public class SockReceiver
     {
 
         const int BufferSize = 1452;
-        public byte[] ReceiveData()
+        static public byte[] ReceiveData()
         {
             try
             {
+                if (ServerProperty.RemoteServer == null)
+                    throw new Exception("The server hasn't been connected");             
                 NetworkStream streamToClient = ServerProperty.RemoteServer.GetStream();
                 byte[] buffer = new byte[BufferSize];
                 int bytesRead = streamToClient.Read(buffer, 0, BufferSize);

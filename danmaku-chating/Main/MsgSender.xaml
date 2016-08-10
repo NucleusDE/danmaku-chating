@@ -13,7 +13,7 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"
-        FontFamily="{DynamicResource MaterialDesignFont}" Background="{x:Null}" Loaded="Window_Loaded" Closing="Window_Closing" MouseEnter="MouseEnter_" Topmost="True" LostFocus="LostFocus_">
+        FontFamily="{DynamicResource MaterialDesignFont}" Background="{x:Null}" Loaded="Window_Loaded" MouseEnter="MouseEnter_" Topmost="True" LostFocus="LostFocus_">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="bg.png"/>

@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Model.Structs;
 using libNetwork.Sockets;
+using Invoker.Invokers_Rece;
 
 namespace Invoker.Invokers
 {
-    static public class JoinRoom
+    static public class CreateRoom
     {
-        static public void Join(Room_mod data, int uid)
+        static public void Create(Room_mod data)
         {
-            SockSender sender = new SockSender();
-            sender.SendMessage(data.ToBytes(uid, 4));
+            SockSender.SendMessage(data.ToBytes(AnalysisStack.Index, 2));
         }
     }
 }
